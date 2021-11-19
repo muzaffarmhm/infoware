@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const data = require('./seedData');
-const Owner = require('../../models/owner');
+const User = require('../../models/user');
 
 mongoose.connect('mongodb://localhost/infoware');
 
@@ -13,9 +13,9 @@ mongoose.connection.on('error', function(err) {
 
 const seedDB = async () => {
     try {
-        await Owner.deleteMany({})
+        await User.deleteMany({})
         console.log('removed data')
-        await Owner.insertMany(data)
+        await User.insertMany(data)
         console.log('seeded data')
     } catch (err) {
         console.log(err)

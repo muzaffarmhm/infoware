@@ -1,7 +1,7 @@
 // Mongoose Schema
 const mongoose = require('mongoose');
 
-const OwnerSchema = new mongoose.Schema({
+const UserSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true
@@ -15,9 +15,14 @@ const OwnerSchema = new mongoose.Schema({
         required: true,
         enum: ['Male','Female']
     },
+    role:{
+        type: String,
+        required: true,
+        enum:['Owner','Customer']
+    }
 });
 
 // //mongoose model
-const Owner = mongoose.model('Owner', OwnerSchema);
+const User = mongoose.model('User', UserSchema);
 
-module.exports = Owner
+module.exports = User

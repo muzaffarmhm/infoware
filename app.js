@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const path = require('path');
-const Owner = require('./models/owner');
+const User = require('./models/user');
 const Product = require('./models/products');
 const Order = require('./models/orders');
 const { applyEach } = require('async');
@@ -35,7 +35,7 @@ app.get('/',(req,res)=>{
 
 app.post('/',async(req,res)=>{
     const account = req.body;
-    const newAccount = new Owner(account);
+    const newAccount = new User(account);
     await newAccount.save();
     res.redirect('/');
 })
